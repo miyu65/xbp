@@ -1,0 +1,52 @@
+<h1>モンスターを倒すゲーム</h1>
+<h2>ルール説明</h2>
+<div>真ん中、右左で進めていってhpがなくなったら負け　回復もある</div>
+
+<h2>ソースコード</h2>
+<code>
+    <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+    <li style="background-color:#EFF;">import sys                  # システム用モジュール</li>
+    <li style="background-color:#EEF;">import random as rd         # 乱数を扱うモジュール</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">def checkDeath() :          # 生命点(HP)が無くなったかをチェックする関数</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;global HP               # 生命点(HP)を関数外と共有する</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;global score            # 得点(スコア)を関数外と共有する</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;if HP &lt;= 0 :            # 生命点(HP)が無くなった</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("やられた")</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("")</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("スコア : " + str(score))</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("")</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("--- GAME OVER ---")</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.exit()          # プログラムを終了する</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">def slime() :               # スライムの場合の処理をする関数</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;global HP</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;global score</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("スライムが現れた！")</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;HP = HP - 10            # 生命点(HP)を減らす</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;checkDeath()            # 生命点(HP)チェック関数を実行する</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;score = score + 1       # 得点(スコア)を増やす</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("攻撃されてHPが" + str(HP) + "になった")</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">def goblin() :              # ゴブリンの場合の処理をする関数</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;global HP</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;global score</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("ゴブリンが現れた！")</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;HP = HP - 30</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;checkDeath()</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;score = score + 1</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("攻撃されてHPが" + str(HP) + "になった")</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">def dragon() :              # ドラゴンの場合の処理をする関数</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;global HP</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;global score</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("ドラゴンが現れた！")</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;HP = HP - 50</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;checkDeath()</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;score = score + 1</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("攻撃されてHPが" + str(HP) + "になった")</li>
+    </ol></code>

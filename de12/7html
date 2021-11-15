@@ -1,0 +1,94 @@
+<h1>私がおすすめするエリア</h1>
+<h2>新横浜駅</h2>
+<div>家賃、通学時間、面積、築年数に絞って見てみました。</div>
+<img src="images/222.jpg" width="30%">
+<div>ワンルームの相場は、6から7万円といった感じで、横浜線の中でも安い方である。</div>
+通学時間は、30分ほどであり、部屋の面積もまあまあよい。<br>
+築年数もあまり高いところがないことから見た目も選びやすいと思う。<br>
+また個人的な意見として、駅周辺は、横浜線のほかの駅に比べて栄えていて、駅に行けばなんでもある。<br>
+そのため学生も住みやすいと思われる。
+
+
+<div>ソースコード</div>
+import pandas as pd  # データ分析に用いるライブラリ
+import matplotlib.pyplot as plt  # グラフ表示に用いるライブラリ
+
+pd.set_option('display.unicode.east_asian_width', True)  # 表示のずれを少し緩和
+plt.rcParams['font.family'] = 'IPAexGothic'  # グラフ表示におけるフォントの指定
+
+
+data_path = "./data.csv"
+df_data = pd.read_csv(data_path,  encoding="utf-8-sig")
+
+df_data.groupby("路線").mean().loc[:,["合計時間","家賃","面積","築年数"]].plot.bar(subplots=True,
+                                                                      layout=(2,2),
+                                                                      figsize=(16,10))
+plt.subplots_adjust(bottom=0.4)
+plt.show()
+
+print(df_data.columns)
+print(df_data)
+
+import pandas as pd  # データ分析に用いるライブラリ
+import matplotlib.pyplot as plt  # グラフ表示に用いるライブラリ
+
+pd.set_option('display.unicode.east_asian_width', True)  # 表示のずれを少し緩和
+plt.rcParams['font.family'] = 'IPAexGothic'  # グラフ表示におけるフォントの指定
+
+data_path = "./data.csv"
+df_data = pd.read_csv(data_path, encoding="utf-8-sig")
+
+
+print(df_data.groupby("駅").mean().loc["新横浜駅", ["合計時間", "家賃", "面積", "築年数"]])
+
+df_data.groupby("駅").mean().loc[:, ["合計時間", "家賃", "面積", "築年数"]].plot.bar(subplots=True,
+                                                                         layout=(2, 2),
+                                                                         figsize=(20, 10))
+plt.subplots_adjust(bottom=0.4)
+plt.show()
+print(df_data.columns)
+print(df_data)
+
+import pandas as pd  # データ分析に用いるライブラリ
+import matplotlib.pyplot as plt  # グラフ表示に用いるライブラリ
+
+pd.set_option('display.unicode.east_asian_width', True)  # 表示のずれを少し緩和
+plt.rcParams['font.family'] = 'IPAexGothic'  # グラフ表示におけるフォントの指定
+plt.rcParams['font.size'] = 8
+
+data_path = "./data.csv"
+df_data = pd.read_csv(data_path, encoding="utf-8-sig")
+
+
+print(df_data.groupby("駅").mean().loc["新横浜駅", ["合計時間", "家賃", "面積", "築年数"]])
+
+df_mean = df_data[df_data.loc[:, "路線"] == "ＪＲ横浜線"]
+df_mean.groupby("駅").mean().loc[:, ["合計時間", "家賃", "面積", "築年数"]].plot.bar(subplots=True,
+                                                                         layout=(2, 2),
+                                                                         figsize=(16,10))
+plt.subplots_adjust(left=0.01, right=0.99, wspace=0.05, bottom=0.2)
+plt.show()
+print(df_data.columns)
+print(df_data)
+
+import pandas as pd  # データ分析に用いるライブラリ
+import matplotlib.pyplot as plt  # グラフ表示に用いるライブラリ
+
+pd.set_option('display.unicode.east_asian_width', True)  # 表示のずれを少し緩和
+plt.rcParams['font.family'] = 'IPAexGothic'  # グラフ表示におけるフォントの指定
+plt.rcParams['font.size'] = 8
+
+data_path = "./data.csv"
+df_data = pd.read_csv(data_path, encoding="utf-8-sig")
+
+
+print(df_data.groupby("駅").mean().loc["新横浜駅", ["合計時間", "家賃", "面積", "築年数"]])
+
+df_mean = df_data[df_data.loc[:, "路線"] == "東急東横線"]
+df_mean.groupby("駅").mean().loc[:, ["合計時間", "家賃", "面積", "築年数"]].plot.bar(subplots=True,
+                                                                         layout=(2, 2),
+                                                                         figsize=(20,10))
+plt.subplots_adjust(left=0.05, right=0.99, wspace=0.05, bottom=0.2)
+plt.show()
+print(df_data.columns)
+print(df_data)
